@@ -11,8 +11,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final products = List<String>.generate(1000, (int index) => "Products $index",
-      growable: true);
+
+  //generate a list
+  final products = List<String>.generate(100, (int index) => "Contact $index");
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +25,10 @@ class _HomePageState extends State<HomePage> {
         itemCount: products.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text('${products[index]}'),
+            leading: Icon(Icons.person),
+            title: Text(products[index]),
             onTap: () {
-              Fluttertoast.showToast(msg: "Products " + products[index]);
+              Fluttertoast.showToast(msg: "Hey " + products[index]);
             },
           );
         },
